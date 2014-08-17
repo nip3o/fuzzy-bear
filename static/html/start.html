@@ -1,0 +1,16 @@
+<div class="container-fluid">
+    <section>
+        <div class="container" ng-repeat="category in categories">
+            <div class="row">
+                <h2>
+                    {{ category.name }}
+                </h2>
+            </div>
+            <div class="row">
+                <h6 ng-repeat="package in category.packages">
+                    {{ package.name }}
+                </h6>
+            </div>
+        </div>
+    </section>
+</div>

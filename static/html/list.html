@@ -1,0 +1,61 @@
+<div class="container-fluid">
+    <h1>
+        {{ category.name }}
+    </h1>
+    <section class="container" ng-repeat="package in category.packages">
+        <div class="row">
+            <div class="col-lg-6">
+                <h2>
+                    {{ package.name }}
+                </h2>
+                <div>
+                    {{ package.description }}
+                </div>
+                <div class="col-lg-6" ng-repeat="link in package.links">
+                    <i class="fa" ng-class="link.iconClass"></i>
+                    <a href="{{ link.url }}">
+                        {{ link.name }}
+                    </a>
+                </div>
+                <div>
+                    {{ package.versions }}
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="row">
+                    Nice graphs
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <i class="fa fa-arrow-left"></i>
+                        <div>
+                            <h5>
+                                Project activity
+                            </h5>
+                            <div>
+                                {{ package.commits|length }} commit(s) last week
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <i class="fa fa-arrow-left"></i>
+                        <div>
+                            <h5>
+                                Downloads
+                            </h5>
+                            <div>
+                                {{ package.downloadCount }} downloads last week
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    Latest release: {{ package.releases.latest.name }} ({{ package.releases.latest.date }})
+                    <div>
+                        {{ package.releases.recent|length }} recent releases ({{ package.releases.averageCount }} per year)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
